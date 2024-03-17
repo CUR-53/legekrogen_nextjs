@@ -1,0 +1,25 @@
+.container {
+  position: relative;
+  z-index: 10;
+  background-color: var(--color-bg-primary);
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 12px 30px 8px;
+}
+
+.logo img {
+  width: auto;
+  height: 50px;
+}
+
+.nav {
+  font-size: 1.6rem;
+  color: var(--color-white);
+  cursor: pointer;
+}

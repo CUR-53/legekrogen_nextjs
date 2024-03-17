@@ -1,52 +1,59 @@
 :root {
+  --color-white: #fff;
+  --color-black: #000;
 
-  /* Global Variables */
-  --main-color: lightblue;
+  --color-text-primary: #355674;
 
-  /* Component Specific Variables */
-  --box-color: #fff;
+  --color-bg-primary: #355674;
+  --color-bg-secondary: #d7e6eb;
+
+  --color-font-base: #000;
+  --color-background-base: #fff;
 }
 
 @media (prefers-color-scheme: dark) {
-
   :root {
-    
-    /* Global Variables */
-    --main-color: #333;
+    --color-white: #fff;
+    --color-black: #000;
 
+    --color-text-primary: #355674;
 
-    /* Component Specific Variables */
-    --box-color: rgb(235, 235, 160);
+    --color-bg-primary: #355674;
+    --color-bg-secondary: #d7e6eb;
 
+    --color-font-base: #000;
+    --color-background-base: #fff;
   }
-
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+}
+
+html {
+  --scroll-behavior: smooth !important;
+  scroll-behavior: smooth !important;
 }
 
 html,
 body {
-  background-color: var(--main-color);
+  max-width: 100vw;
+  overflow-x: hidden;
+  color: var(--color-font-base);
+}
+
+p {
+  margin: 10px 0;
 }
 
 body {
-  background-color: var(--main-color);
-  ;
+  background-color: var(--color-background-base);
+  scroll-behavior: smooth;
 }
 
 a {
   color: inherit;
-  text-decoration: underline;
-}
-
-
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+  text-decoration: none;
 }

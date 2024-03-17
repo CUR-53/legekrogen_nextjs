@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 30px;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary);
+}
+
+.container p {
+  margin: 0;
+  letter-spacing: 0.5px;
+  font-size: 13px;
+  color: #333;
+}
