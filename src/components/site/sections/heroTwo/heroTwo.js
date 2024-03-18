@@ -8,8 +8,9 @@ const HeroTwo = ({ data }) => {
       <div className={styles.img}>
         <Image src={data.img} alt={data.imgAlt} width={2000} height={1000} />
         <div className={styles.text}>
-          <h1 className={square_PegFont.className}>{data.title}</h1>
-          <p>{data.byline}</p>
+          <h2 className={`${styles.heading} ${square_PegFont.className}`}>{data.title}</h2>
+          <h2 className={styles.byline}>{data.byline}</h2>
+          <p className={styles.para}>{data.para}</p>
         </div>
       </div>
     </section>

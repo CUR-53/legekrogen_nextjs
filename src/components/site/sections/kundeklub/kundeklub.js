@@ -7,7 +7,7 @@ const Kundeklub = () => {
     <section className={styles.container}>
       <p>Kunne du også tænke dig at blive medlem af vores</p>
       <h2 className={square_PegFont.className}>Kundeklub?</h2>
-      <Link href="/medlem">
+      <Link href="/kundeklubben">
         <button>BLIV MEDLEM NU!</button>
       </Link>
     </section>

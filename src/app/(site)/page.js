@@ -3,7 +3,6 @@ import styles from './page.module.css';
 import ProductCollection from '@/components/site/sections/product-collection/product-collection';
 import Reviews from '@/components/site/sections/reviews/reviews';
 import Kundeklub from '@/components/site/sections/kundeklub/kundeklub';
-import Footer from '@/components/site/common/footer/footer';
 
 const heroData = {
   title: 'At lege er at leve',
@@ -24,7 +23,6 @@ export default function Home() {
       <ProductCollection data={productCollectionData} recommended={true} />
       <Reviews />
       <Kundeklub />
-      <Footer />
     </main>
   );
 }

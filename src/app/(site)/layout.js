@@ -1,3 +1,4 @@
+import Footer from '@/components/site/common/footer/footer';
 import Header from '@/components/site/common/header/header';
 
 const menuData = [
@@ -31,6 +32,7 @@ export default function siteLayout({ children }) {
     <div>
       <Header logoPath={logoPath} logoAlt={logoAlt} menu={menuData} />
       {children}
+      <Footer />
     </div>
   );
 }
