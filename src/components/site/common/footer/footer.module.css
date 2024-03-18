@@ -1,0 +1,37 @@
+.container {
+  width: 100%;
+  padding: 30px 0;
+  background-color: var(--color-bg-primary);
+  color: var(--color-white);
+  text-align: center;
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* Socials */
+.social {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.social_header {
+  font-size: 2.5rem;
+}
+
+.icon {
+  color: #fff;
+  font-size: clamp(3rem, 3vw, 4rem);
+}
+
+.icon:hover {
+  color: var(--color-pink);
+  cursor: pointer;
+}
