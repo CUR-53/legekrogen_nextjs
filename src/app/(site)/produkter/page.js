@@ -1,17 +1,28 @@
 import HeroTwo from '@/components/site/sections/heroTwo/heroTwo';
 import styles from './page.module.css';
+import ProductCollection from '@/components/site/sections/product-collection/product-collection';
+import Kundeklub from '@/components/site/sections/kundeklub/kundeklub';
+import Footer from '@/components/site/common/footer/footer';
 
-const heroData = {
-  title: 'At lege er at leve',
-  byline: 'Her hos os har vi et stort udvalg af legetøj i høj kvalitet',
-  img: '/heros/forsiden.jpg',
-  imgAlt: 'At lege er at leve',
+const heroTwoData = {
+  title: 'På udkig efter nyt',
+  byline: 'LEGETØJ?',
+  img: '/heros/produkter.jpg',
+  imgAlt: 'På udkig efter nyt',
+};
+
+const productCollectionData = {
+  title: 'Alt vores',
+  titleLineTwo: 'LEGETØJ',
 };
 
 const Page = () => {
   return (
     <main className={styles.container}>
-      <HeroTwo data={heroData} />
+      <HeroTwo data={heroTwoData} />
+      <ProductCollection data={productCollectionData} />
+      <Kundeklub />
+      <Footer />
     </main>
   );
 };
