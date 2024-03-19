@@ -1,6 +1,7 @@
 import HeroTwo from '@/components/site/sections/heroTwo/heroTwo';
 import styles from './page.module.css';
 import Kundeklub from '@/components/site/sections/kundeklub/kundeklub';
+import Accordions from '@/components/site/sections/accordions/accordions';
 
 const heroTwoData = {
   title: 'Har du nogle',
@@ -14,6 +15,7 @@ const Page = () => {
   return (
     <main className={styles.page}>
       <HeroTwo data={heroTwoData} />
+      <Accordions />
       <Kundeklub />
     </main>
   );

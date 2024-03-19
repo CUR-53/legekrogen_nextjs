@@ -1,0 +1,71 @@
+.response {
+  background-image: url('https://images.unsplash.com/photo-1612833943307-3e3e3e3e3e3e');
+}
+
+.container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(193, 173, 206, 0.7), rgba(193, 173, 206, 0.7)), url('/heros/medlem.jpg') no-repeat center center/cover;
+  z-index: 0;
+}
+
+.response .container {
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  padding: 50px;
+  color: var(--color-white);
+  margin: 0 auto;
+}
+
+.response .headline {
+  z-index: 2;
+  font-size: 56px;
+  font-weight: 700;
+  margin: 20px 0;
+}
+
+.response .name {
+  z-index: 2;
+  font-size: 18px;
+  color: var(--color-);
+  font-weight: 700;
+}
+
+.response p {
+  z-index: 2;
+}
+
+.response .btn {
+  z-index: 2;
+  border: none;
+  display: block;
+  margin: 40px auto;
+  padding: 15px 50px;
+  border-radius: 100px;
+  border: 2px solid var(--color-bg-primary);
+  background-color: var(--color-bg-primary);
+
+  font-size: 1rem;
+  color: var(--color-white);
+
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.response .btn:hover {
+  z-index: 2;
+  border: 2px solid var(--color-bg-primary);
+  background-color: transparent;
+
+  color: var(--color-white);
+}
