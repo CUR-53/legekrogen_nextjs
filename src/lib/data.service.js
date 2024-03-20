@@ -1,11 +1,10 @@
-
-import dbConnect from "./db/dbConnect.mjs";
-import orderModel from "./db/models/order.model.mjs";
-import productModel from "./db/models/product.model.mjs";
-import questionModel from "./db/models/question.model.mjs";
-import reviewModel from "./db/models/review.model.mjs";
-import subscriberModel from "./db/models/subscriber.model.mjs";
-import userModel from "./db/models/user.model.mjs";
+import dbConnect from './db/dbConnect.mjs';
+import orderModel from './db/models/order.model.mjs';
+import productModel from './db/models/product.model.mjs';
+import questionModel from './db/models/question.model.mjs';
+import reviewModel from './db/models/review.model.mjs';
+import subscriberModel from './db/models/subscriber.model.mjs';
+import userModel from './db/models/user.model.mjs';
 
 /*
 
@@ -13,57 +12,38 @@ import userModel from "./db/models/user.model.mjs";
 
 */
 export const getUsers = async () => {
-    
-    console.log('getUsers')
+  console.log('getUsers');
 
-    try {
-
-        await dbConnect();
-        return await userModel.find({});
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
-
+  try {
+    await dbConnect();
+    return await userModel.find({});
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getUserByEmail = async (email) => {
-    
-    console.log('getUserByEmail')
+  console.log('getUserByEmail');
 
-    try {
-
-        await dbConnect();
-        let result = await userModel.find({'email': email});
-        return result[0];
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+  try {
+    await dbConnect();
+    let result = await userModel.find({ email: email });
+    return result[0];
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getUserById = async (id) => {
-    
-    console.log('getUserById')
+  console.log('getUserById');
 
-    try {
-
-        await dbConnect();
-        let result = await userModel.find({'_id': id});
-        return result[0];
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+  try {
+    await dbConnect();
+    let result = await userModel.find({ _id: id });
+    return result[0];
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 /*
@@ -73,130 +53,103 @@ export const getUserById = async (id) => {
 */
 
 export const getSubscribers = async () => {
-    
-    console.log('getSubscribers')
+  console.log('getSubscribers');
 
-    try {
-
-        await dbConnect();
-        return await subscriberModel.find({});
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+  try {
+    await dbConnect();
+    return await subscriberModel.find({});
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getSubscriberByEmail = async (email) => {
-    
-    console.log('getSubscriberByEmail')
+  console.log('getSubscriberByEmail');
 
-    try {
+  try {
+    await dbConnect();
+    let result = await subscriberModel.find({ email: email });
 
-        await dbConnect();
-        let result = await subscriberModel.find({'email': email});
-
-        return result.length === 0 ? {'message' : 'no such user found'} : result[0];
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+    return result.length === 0 ? { message: 'no such user found' } : result[0];
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getSubscriberById = async (id) => {
-    
-    console.log('getSubscriberById')
+  console.log('getSubscriberById');
 
-    try {
-
-        await dbConnect();
-        let result = await subscriberModel.find({'_id': id});
-        return result.length === 0 ? {'message' : 'no such user found'} : result[0];
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+  try {
+    await dbConnect();
+    let result = await subscriberModel.find({ _id: id });
+    return result.length === 0 ? { message: 'no such user found' } : result[0];
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const postSubscriber = async (subscriber) => {
-    
-    console.log('postSubscriber')
+  console.log('postSubscriber');
 
-    try {
+  try {
+    await dbConnect();
 
-        await dbConnect();
+    let result = {};
+    await subscriberModel
+      .create(subscriber)
+      .then((data) => {
+        result = data;
+      })
+      .catch((error) => {
+        result = false;
+      });
 
-        let result = {};
-        await subscriberModel.create(subscriber).then((data) => {   
-            result = data;
-        }).catch((error) => {
-            result = false;
-        });
-
-        return result;
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const deleteSubscriber = async (id) => {
-    
-    try {
+  try {
+    await dbConnect();
 
-        await dbConnect();
+    let result = {};
+    await subscriberModel
+      .findByIdAndDelete({ _id: id })
+      .then((data) => {
+        result = data;
+      })
+      .catch((error) => {
+        result = false;
+      });
 
-        let result = {};
-        await subscriberModel.findByIdAndDelete({_id: id}).then((data) => {   
-            result = data;
-        }).catch((error) => {
-            result = false;
-        });
-
-        return result;
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const putSubscriber = async (subscriber) => {
-    
-    console.log('putSubscriber', subscriber);
+  console.log('putSubscriber', subscriber);
 
-    try {
+  try {
+    await dbConnect();
 
-        await dbConnect();
+    let result = {};
+    await subscriberModel
+      .findByIdAndUpdate({ _id: subscriber.id }, subscriber)
+      .then((data) => {
+        result = data;
+      })
+      .catch((error) => {
+        result = false;
+      });
 
-        let result = {};
-        await subscriberModel.findByIdAndUpdate({_id: subscriber.id}, subscriber).then((data) => {   
-            result = data;
-        }).catch((error) => {
-            result = false;
-        });
-
-        return result;
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 /* 
@@ -208,22 +161,16 @@ export const putSubscriber = async (subscriber) => {
 */
 
 export const getReviews = async () => {
-    
-    console.log('getReviews service')
+  console.log('getReviews service');
 
-    try {
+  try {
+    await dbConnect();
+    let result = await reviewModel.find({});
 
-        await dbConnect();
-        let result = await reviewModel.find({});
-
-        return result
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 /* 
@@ -235,41 +182,28 @@ export const getReviews = async () => {
 */
 
 export const getProducts = async () => {
-    
-    try {
+  try {
+    await dbConnect();
+    let result = await productModel.find({});
 
-        await dbConnect();
-        let result = await productModel.find({});
-
-        return result
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getProductsByRange = async (range) => {
-    
-    try {
+  try {
+    await dbConnect();
 
-        await dbConnect();
+    range = range.split(',');
 
-        range = range.split(',');
+    let result = await productModel.find({ _id: { $in: range } });
 
-
-        let result = await productModel.find({ '_id': { $in: range } });
-
-        return result
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 /* 
@@ -279,97 +213,64 @@ export const getProductsByRange = async (range) => {
 */
 
 export const getOrders = async () => {
-    
-    try {
+  try {
+    await dbConnect();
+    let result = await orderModel.find({});
 
-        await dbConnect();
-        let result = await orderModel.find({});
-
-        return result
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getOrderById = async (id) => {
-    
-    try {
+  try {
+    await dbConnect();
+    let result = await orderModel.find({ _id: id });
 
-        await dbConnect();
-        let result = await orderModel.find({_id: id});
-
-        return result
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const getOrderByEmail = async (email) => {
-    
-    try {
+  try {
+    await dbConnect();
+    let result = await orderModel.find({ email: email });
 
-        await dbConnect();
-        let result = await orderModel.find({email: email});
-
-        return result
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 export const postOrder = async (order) => {
-    
-    try {
+  try {
+    await dbConnect();
 
-        await dbConnect();
+    let result = {};
+    result = await orderModel.create(order);
 
-        let result = {};
-        result = await orderModel.create(order);
-
-        return result;
-     
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
-
 export const deleteOrderById = async (id) => {
-    
-    console.log('deleteOrderById')
+  console.log('deleteOrderById');
 
-    try {
+  try {
+    await dbConnect();
 
-        await dbConnect();
+    let result = {};
+    result = await orderModel.findByIdAndDelete({ _id: id });
 
-        let result = {};
-        result = await orderModel.findByIdAndDelete({_id: id});
-
-        return result;
-     
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 /* 
@@ -381,20 +282,14 @@ export const deleteOrderById = async (id) => {
 */
 
 export const getQuestions = async () => {
-    
-    console.log('getQuestions service')
+  console.log('getQuestions service');
 
-    try {
+  try {
+    await dbConnect();
+    let result = await questionModel.find({});
 
-        await dbConnect();
-        let result = await questionModel.find({});
-
-        return result
-
-    } catch (error) {
-
-        console.log(error)
-
-    }
-
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
 };
