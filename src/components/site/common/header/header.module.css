@@ -23,12 +23,23 @@
 }
 
 .nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
   font-size: 1.6rem;
   color: var(--color-white);
   cursor: pointer;
   z-index: 51;
 }
 
+.cartAmount {
+  background-color: var(--color-red);
+  color: var(--color-white);
+  font-size: 1.2rem;
+  padding: 2px 5px;
+  border-radius: 50%;
+}
 .menu {
   display: flex;
   flex-direction: column;
@@ -95,4 +106,85 @@
 .effect:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+.bar .bars {
+  color: var(--color-black);
+  width: 50px;
+  height: 30px;
+  margin-top: 4px;
+}
+
+.cartEmpty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  weight: 100%;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.cart {
+  background-color: var(--color-white);
+  color: var(--color-text-primary);
+  text-align: right;
+  padding: 20px 0 35px 0;
+  transition: right 0.3s ease-in-out;
+  overflow: hidden;
+  right: -500px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 52;
+  max-width: 450px;
+  width: 100%;
+  box-shadow: 0px 3px 6px var(--color-shadow);
+}
+
+.cartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.cart.openCart {
+  right: 0px;
+}
+
+.cartTitle {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  padding: 0 20px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: none;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.closeButton:hover {
+  color: var(--color-gray); /* Adjust hover color if needed */
+}
+
+.empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: var(--color-text-primary);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }

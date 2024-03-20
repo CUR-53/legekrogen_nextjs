@@ -1,6 +1,11 @@
 import Footer from '@/components/site/common/footer/footer';
 import Header from '@/components/site/common/header/header';
 
+export const metadata = {
+  title: 'Legekrogen',
+  description: 'Legekrogen - legetøj til børn i alle aldre',
+};
+
 const menuData = [
   {
     id: 1,

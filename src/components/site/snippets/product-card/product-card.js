@@ -1,7 +1,8 @@
+'use client';
 import Image from 'next/image';
 import styles from './product-card.module.css';
 import { square_PegFont } from '@/utils/fonts';
-import Link from 'next/link';
+import { useBasket } from '@/context/basket';
 
 const PercentBox = ({ percent }) => {
   return percent ? (
@@ -13,7 +14,8 @@ const PercentBox = ({ percent }) => {
   );
 };
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, amount }) => {
+  const { addToBasket } = useBasket();
   return (
     <div className={styles.container}>
       <div className={styles.top}>
@@ -31,6 +33,9 @@ const ProductCard = ({ product }) => {
         <div className={styles.footer}>
           <div>
             <div className={styles.price}>{product.price},00 kr.</div>
+            <button className={styles.addToBasket} onClick={() => addToBasket(product._id, amount)}>
+              KØB
+            </button>
           </div>
         </div>
       </div>

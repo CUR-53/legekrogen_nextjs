@@ -25,8 +25,8 @@ const ProductCollection = ({ data, recommended }) => {
         <span className={square_PegFont.className}>{data.title}</span> <span>{data.titleLineTwo}</span>
       </h2>
       <div className={styles.grid}>
-        {products.map((Product) => {
-          return <ProductCard key={Product._id} product={Product} />;
+        {products.map((product) => {
+          return <ProductCard key={product._id} product={product} />;
         })}
       </div>
     </section>

@@ -84,3 +84,18 @@
   align-items: center;
   margin: 15px 0 10px 0;
 }
+
+.addToBasket {
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: var(--color-white);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.addToBasket:hover {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
