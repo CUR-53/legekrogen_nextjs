@@ -7,7 +7,7 @@ const productSchema = new Schema({
   price: { type: Number, default: null },
   discountInPercent: { type: Number, default: 0 },
   recommended: { type: Boolean, default: false },
-  created : { type : Date, default: new Date() }
+  created: { type: Date, default: new Date() },
 });
 
 export default mongoose.models.product || mongoose.model('product', productSchema);
