@@ -2,7 +2,6 @@ import HeroTwo from '@/components/site/sections/heroTwo/heroTwo';
 import styles from './page.module.css';
 import ProductCollection from '@/components/site/sections/product-collection/product-collection';
 import Kundeklub from '@/components/site/sections/kundeklub/kundeklub';
-import Footer from '@/components/site/common/footer/footer';
 
 const heroTwoData = {
   title: 'På udkig efter nyt',
